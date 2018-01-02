@@ -1,0 +1,23 @@
+<div class="card" style="width: 18rem;">
+	{% if include.image-src %}<img class="card-img-top" src="{{ include.image-src }}" alt="{{ include.image-alt }}">{% endif %}
+	<div class="card-body">
+		{% if include.title %}<h5 class="card-title">{{ include.title }}</h5>{% endif %}
+		{% if include.subtitle %}<h6 class="card-subtitle mb-2 text-muted">{{ include.title }}</h6>{% endif %}
+		{% if include.text %}<p class="card-text">{{ include.text }}</p>{% endif %}
+
+		{% if include.link %}
+		{% for link in include.link %}
+			<a href="{{ link.href }}" class="card-link">{{ link.text }}</a>
+		{% endfor %}
+		{% endif %}
+
+		{% if include.button %}
+		{% for button in include.button %}
+			<a href="{{ button.href }}" class="btn btn-primary">{{ button.text }}</a>
+		{% endfor %}
+		{% endif %}
+	</div>
+	{% if include.footer %}
+		<div class="card-footer"><small class="text-muted">{{ include.footer }}</small></div>
+	{% endif %}
+</div>
