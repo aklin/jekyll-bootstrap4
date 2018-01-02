@@ -1,34 +1,33 @@
 {% if include.slides %}
-
 <header>
 	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 		<ol class="carousel-indicators">
 			{% for entry in include.slides %}
-			<li data-target="#carouselExampleIndicators" data-slide-to="{{ forloop.index0 }}"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="{{ forloop.index0 }}" {% if forloop.first %} class="active" {% endif %}></li>
 			{% endfor %}
 		</ol>
-	</div>
-	<div class="carousel-inner" role="listbox">
 
-	{% for entry in include.slides %}
-	<div class="carousel-item active" style="background-image: url('{{ entry.image }}')">
-		<div class="carousel-caption d-none d-md-block">
-			<h3>{{ entry.title }}</h3>
-			<p>{{ entry.text }}</p>
+		<div class="carousel-inner" role="listbox">
+
+			{% for entry in include.slides %}
+			<div class="carousel-item {% if forloop.first %}active{% endif %}" style="background-image: url('{{ entry.image }}')">
+				<div class="carousel-caption d-none d-md-block">
+					<h3>{{ entry.title }}</h3>
+					<p>{{ entry.text }}</p>
+				</div>
+			</div>
+			{% endfor %}
+
 		</div>
-	</div>
-	{% endfor %}
 
-
-	</div>
-	<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-	<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-	<span class="sr-only">{{ site.data.lang.pagination_previous }}</span>
-  </a>
-	<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-	<span class="carousel-control-next-icon" aria-hidden="true"></span>
-	<span class="sr-only">{{ site.data.lang.pagination_next }}</span>
-  </a>
+		<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="sr-only">{{ site.data.lang.pagination_previous }}</span>
+		</a>
+		<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="sr-only">{{ site.data.lang.pagination_next }}</span>
+		</a>
 	</div>
 </header>
 {% endif %} {{ content }}
