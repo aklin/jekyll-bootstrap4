@@ -1,16 +1,8 @@
 ---
-layout: carousel
-carousel-data:
-  - title: Voluptates Repudiandae
-    image: http://via.placeholder.com/1920x1080
-    text: At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
-  - title: Ut enim ad minima veniam
-    image: http://via.placeholder.com/1920x1080
-    text: But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted
-  - title: Slide Title
-    image: http://via.placeholder.com/1920x1080
-    text: At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
+layout: default
 ---
+
+{% include carousel.html slides=site.data.home_gallery %}
 
 <section class="py-5">
 	<div class="container">
@@ -20,5 +12,3 @@ carousel-data:
 		</p>
 	</div>
 </section>
-
-{{ content }}
