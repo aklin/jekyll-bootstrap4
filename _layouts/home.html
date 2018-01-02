@@ -12,3 +12,15 @@ layout: default
 		</p>
 	</div>
 </section>
+
+
+<section class="py-5">
+	<div class="container">
+		<h1>Meet the Team</h1>
+		<div class="card-deck">
+			{% for author in site.data.authors %}
+				{% include card.html title=author.name text=author.bio image-alt="Author image" image-src=author.image %}
+			{% endfor %}
+		</div>
+	</div>
+</section>
